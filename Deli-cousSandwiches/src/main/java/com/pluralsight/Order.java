@@ -1,14 +1,14 @@
 package com.pluralsight;
 
 public class Order {
-    private String name;
+    private String customerName;
     private int orderNumber;
     private List<Sandwich> sandwiches;
     private List<Chips> chips;
 
 
-    public Order(String name, int orderNumber, List<Sandwich> sandwiches, List<Chips> chips) {
-        this.name = name;
+    public Order(String customerName, int orderNumber, List<Sandwich> sandwiches, List<Chips> chips) {
+        this.customerName = customerName;
         this.orderNumber = orderNumber;
         this.sandwiches = sandwiches;
         this.chips = chips;

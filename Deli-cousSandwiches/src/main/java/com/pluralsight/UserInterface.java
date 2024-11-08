@@ -1,5 +1,6 @@
 package com.pluralsight;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class UserInterface {
@@ -31,6 +32,11 @@ public void displayMenu(){
             System.out.println("Please choose an option listed above.");
             break;
     }
+}
+
+public void displayItemMenu(){
+
+
 }
 
 public void addOrder(){
