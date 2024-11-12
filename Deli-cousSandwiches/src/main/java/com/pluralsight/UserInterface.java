@@ -1,6 +1,8 @@
 package com.pluralsight;
 
+import java.sql.Array;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class UserInterface {
@@ -12,24 +14,29 @@ Scanner scanner = new Scanner(System.in);
 public void displayMenu(){
     System.out.println("Welcome to the Krusty Krab my name is Squidwarddd. How may I help you?");
     int choice = scanner.nextInt();
+    System.out.println("What is your name?");
+    String customerName = scanner.nextLine();
 
     //display the menu
-    Order order = new Order();
+
     switch (choice){
         case 1:
-
             System.out.println("What size sandwich would you like?");
             String size = scanner.nextLine();
             System.out.println("What type of bread would you like?");
             String bread = scanner.nextLine();
             System.out.println("What kind of toppings would you like?");
+            //Create a list of toppings and
             String topping = scanner.nextLine();
             System.out.println("Would you like your sandwich toasted?");
-            String isToasted = scanner.nextLine();
-            Sandwich sandwich = new Sandwich(size,bread,topping,isToasted);
+            boolean isToasted = scanner.nextBoolean();
+
+
+
+            Sandwich sandwich = new Sandwich(size, bread, topping, isToasted);
             sandwich.addBread(bread);
-            sandwich.addToppings(topping);
-            order.addSandwich(sandwich);
+            sandwich.addToppings();
+
             System.out.println("Sandwich successfully added!");
             break;
         case 2:
@@ -40,7 +47,6 @@ public void displayMenu(){
             String drinkSize = scanner.nextLine();
             Drinks drink = new Drinks(drinkSize,drinkFlavor);
             drink.getPrice();
-            order.addDrink();
             System.out.println("Drink successfully added!");
             break;
         case 3:
@@ -49,7 +55,7 @@ public void displayMenu(){
             String chipType = scanner.nextLine();
             Chips chips = new Chips(chipType);
             chips.getPrice();
-            order.addChips();
+
             System.out.println("Chips successfully added!");
             break;
         case 4:
@@ -62,6 +68,10 @@ public void displayMenu(){
 }
 
 public void displayItemMenu(){
+
+
+
+
 
 
 }

@@ -8,7 +8,7 @@ public class Bread {
         this.type = type;
     }
 
-    public String getType() {
+    public String getType(String type) {
         return type;
     }
 }

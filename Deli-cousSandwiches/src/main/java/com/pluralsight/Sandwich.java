@@ -1,6 +1,7 @@
 package com.pluralsight;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class Sandwich {
     private String size;
@@ -12,23 +13,24 @@ public class Sandwich {
     public Sandwich(String size, String breadType, List<Toppings> toppings, boolean isToasted) {
         this.size = size;
         this.breadType = breadType;
-        this.toppings = toppings;
+        this.toppings = new ArrayList<>();
         this.isToasted = isToasted;
     }
 
 
-    public void addBread(){
-     sandwich.add();
+    public void addBread(String bread){
+     if (bread.equalsIgnoreCase(getBreadType())){
+
+     }
     }
 
-    public void addToppings(){
-        for (Toppings topping : toppings){
-
-
-
+    public void addToppings(Toppings topping){
+        for (Toppings availableTopping : toppings){
+            if (topping.equals(availableTopping.getName())){
+                toppings.add(topping);
+            }
         }
-
-    }
+        }
 
 
     public String getSize() {
@@ -39,9 +41,7 @@ public class Sandwich {
         return breadType;
     }
 
-    public List<Toppings> getToppings() {
-        return toppings;
-    }
+
 
     public boolean isToasted() {
         return isToasted;
