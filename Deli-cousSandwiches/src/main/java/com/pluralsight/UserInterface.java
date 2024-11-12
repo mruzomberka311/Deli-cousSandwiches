@@ -30,6 +30,7 @@ public void displayMenu(){
             sandwich.addBread(bread);
             sandwich.addToppings(topping);
             order.addSandwich(sandwich);
+            System.out.println("Sandwich successfully added!");
             break;
         case 2:
             //order drink
@@ -40,9 +41,16 @@ public void displayMenu(){
             Drinks drink = new Drinks(drinkSize,drinkFlavor);
             drink.getPrice();
             order.addDrink();
+            System.out.println("Drink successfully added!");
             break;
         case 3:
             //order chips
+            System.out.println("What kind of chips would you like?");
+            String chipType = scanner.nextLine();
+            Chips chips = new Chips(chipType);
+            chips.getPrice();
+            order.addChips();
+            System.out.println("Chips successfully added!");
             break;
         case 4:
             //finish order
