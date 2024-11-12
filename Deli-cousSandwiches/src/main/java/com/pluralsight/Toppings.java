@@ -12,5 +12,5 @@ public abstract class Toppings {
         return name;
     }
 
-    public abstract double getPrice();
+    public abstract double getPrice(String size);
 }

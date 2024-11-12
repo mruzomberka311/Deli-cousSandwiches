@@ -25,8 +25,8 @@ public class Sandwich {
     }
 
     public void addToppings(Toppings topping){
-        for (Toppings availableTopping : toppings){
-            if (topping.equals(availableTopping.getName())){
+        for (Toppings topping : toppings){
+            if (topping.equals(topping.getName())){
                 toppings.add(topping);
             }
         }
@@ -41,7 +41,9 @@ public class Sandwich {
         return breadType;
     }
 
-
+    public List<Toppings> getToppings() {
+        return toppings;
+    }
 
     public boolean isToasted() {
         return isToasted;

@@ -6,10 +6,10 @@ public class Cheese extends Toppings{
     }
 
     @Override
-    public double getPrice() {
+    public double getPrice(String size) {
 
 
-        switch (sandwich.getSize) {
+        switch (size) {
             case "4":
                 return 0.75;
                 break;

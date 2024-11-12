@@ -12,7 +12,7 @@ public class Drinks
         this.flavor = flavor;
     }
 
-   public double getPrice()
+   public double getPrice(String size)
    {
         switch (getSize().toLowerCase()){
             case "small":

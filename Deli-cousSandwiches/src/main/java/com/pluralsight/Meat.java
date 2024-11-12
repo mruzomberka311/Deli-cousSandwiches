@@ -1,13 +1,13 @@
 package com.pluralsight;
 
-public class Meat extends Toppings{
+public class Meat extends Toppings {
     public Meat(String name) {
         super(name);
     }
 
     @Override
-    public double getPrice() {
-        switch (sandwich.getSize) {
+    public double getPrice(String size) {
+        switch (size) {
             case "4":
                 return 1.00;
             break;
@@ -23,3 +23,5 @@ public class Meat extends Toppings{
         }
     }
 }
+
+

@@ -26,14 +26,12 @@ public void displayMenu(){
             System.out.println("What type of bread would you like?");
             String bread = scanner.nextLine();
             System.out.println("What kind of toppings would you like?");
-            //Create a list of toppings and
-            String topping = scanner.nextLine();
+            //Create a list of toppings and add to sandwich
             System.out.println("Would you like your sandwich toasted?");
             boolean isToasted = scanner.nextBoolean();
 
 
-
-            Sandwich sandwich = new Sandwich(size, bread, topping, isToasted);
+            Sandwich sandwich = new Sandwich(size, bread,, isToasted);
             sandwich.addBread(bread);
             sandwich.addToppings();
 
@@ -46,7 +44,7 @@ public void displayMenu(){
             System.out.println("What size drink would you like? small/medium/large");
             String drinkSize = scanner.nextLine();
             Drinks drink = new Drinks(drinkSize,drinkFlavor);
-            drink.getPrice();
+            drink.getPrice(drinkSize);
             System.out.println("Drink successfully added!");
             break;
         case 3:
