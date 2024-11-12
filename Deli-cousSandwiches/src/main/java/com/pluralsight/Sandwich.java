@@ -1,5 +1,7 @@
 package com.pluralsight;
 
+import java.util.ArrayList;
+
 public class Sandwich {
     private String size;
     private String breadType;
@@ -16,10 +18,15 @@ public class Sandwich {
 
 
     public void addBread(){
-
+     sandwich.add();
     }
 
     public void addToppings(){
+        for (Toppings topping : toppings){
+
+
+
+        }
 
     }
 

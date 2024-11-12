@@ -14,7 +14,7 @@ public class Drinks
 
    public double getPrice()
    {
-        switch (getSize()){
+        switch (getSize().toLowerCase()){
             case "small":
                 return 2.00;
                 break;

@@ -14,13 +14,27 @@ public void displayMenu(){
     int choice = scanner.nextInt();
 
     //display the menu
-
+    Order order = new Order();
     switch (choice){
         case 1:
-            //order a sandwich
+            Sandwich sandwich = new Sandwich();
+            System.out.println("What size sandwich would you like?");
+            String size = scanner.nextLine();
+            System.out.println("What type of bread would you like?");
+            String bread = scanner.nextLine();
+            sandwich.addBread();
+            System.out.println("What kind of toppings would you like?");
+            String topping = scanner.nextLine();
+            sandwich.addToppings();
+            order.addSandwich();
             break;
         case 2:
             //order drink
+            System.out.println("What drink would you like?");
+            String drink = scanner.nextLine();
+            System.out.println("What size drink would you like?");
+            String size = scanner.nextLine();
+
             break;
         case 3:
             //order chips
