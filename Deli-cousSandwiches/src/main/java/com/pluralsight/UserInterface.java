@@ -17,24 +17,29 @@ public void displayMenu(){
     Order order = new Order();
     switch (choice){
         case 1:
-            Sandwich sandwich = new Sandwich();
+
             System.out.println("What size sandwich would you like?");
             String size = scanner.nextLine();
             System.out.println("What type of bread would you like?");
             String bread = scanner.nextLine();
-            sandwich.addBread();
             System.out.println("What kind of toppings would you like?");
             String topping = scanner.nextLine();
-            sandwich.addToppings();
-            order.addSandwich();
+            System.out.println("Would you like your sandwich toasted?");
+            String isToasted = scanner.nextLine();
+            Sandwich sandwich = new Sandwich(size,bread,topping,isToasted);
+            sandwich.addBread(bread);
+            sandwich.addToppings(topping);
+            order.addSandwich(sandwich);
             break;
         case 2:
             //order drink
             System.out.println("What drink would you like?");
-            String drink = scanner.nextLine();
-            System.out.println("What size drink would you like?");
-            String size = scanner.nextLine();
-
+            String drinkFlavor = scanner.nextLine();
+            System.out.println("What size drink would you like? small/medium/large");
+            String drinkSize = scanner.nextLine();
+            Drinks drink = new Drinks(drinkSize,drinkFlavor);
+            drink.getPrice();
+            order.addDrink();
             break;
         case 3:
             //order chips
