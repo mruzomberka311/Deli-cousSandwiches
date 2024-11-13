@@ -37,9 +37,12 @@ public class Order {
 
     }
 
-    public void getTotalPrice(){
+    public void getTotalPrice(Sandwich sandwich, Toppings topping, Drinks drinks, Chips chips){
+     double total = sandwich.getSize();
+     for (Topping topping : toppings){
+         total += topping.getPrice();
 
-
+     }
     }
 
     public String getCustomerName() {

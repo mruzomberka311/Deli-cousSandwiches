@@ -7,15 +7,19 @@ import java.util.Scanner;
 
 public class UserInterface {
 Scanner scanner = new Scanner(System.in);
-
+Order order = new Order();
 
 
 
 public void displayMenu(){
     System.out.println("Welcome to the Krusty Krab my name is Squidwarddd. How may I help you?");
+
     int choice = scanner.nextInt();
     System.out.println("What is your name?");
     String customerName = scanner.nextLine();
+
+
+
 
     //display the menu
 
@@ -27,11 +31,14 @@ public void displayMenu(){
             String bread = scanner.nextLine();
             System.out.println("What kind of toppings would you like?");
             //Create a list of toppings and add to sandwich
+            List<Toppings> sandwichToppings = new ArrayList<>();
+            String choiceToppings = scanner.nextLine();
+            sandwichToppings.add(choiceToppings);
             System.out.println("Would you like your sandwich toasted?");
             boolean isToasted = scanner.nextBoolean();
 
 
-            Sandwich sandwich = new Sandwich(size, bread,, isToasted);
+            Sandwich sandwich = new Sandwich(size, bread, sandwichToppings, isToasted);
             sandwich.addBread(bread);
             sandwich.addToppings();
             List<Sandwich> sandwichList = new ArrayList<>();
@@ -63,8 +70,6 @@ public void displayMenu(){
             break;
         case 4:
             //checkout
-             int orderNumber = (int) Math.random();
-            Order order = new Order(customerName, orderNumber,sandwichList,drinksList,chipsList);
 
 
 
@@ -82,12 +87,21 @@ public void displayMenu(){
     }
 }
 
-public void displayItemMenu(){
+public void displayBreadMenu(){
 
 
+}
+public void displayMeatMenu(){
 
+}
+public void displayCheeseMenu(){
 
+}
 
+public void displayRegularToppingsMenu(){
+
+}
+public void displaySauceMenu(){
 
 }
 
