@@ -38,7 +38,7 @@ public class Order {
     }
 
     public void getTotalPrice(){
-        
+
 
     }
 
@@ -59,7 +59,7 @@ public class Order {
     }
 
     public void setName(String name) {
-        this.name = name;
+        this.customerName = customerName;
     }
 
     public void setOrderNumber(int orderNumber) {

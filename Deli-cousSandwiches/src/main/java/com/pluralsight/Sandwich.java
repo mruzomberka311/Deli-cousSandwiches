@@ -25,8 +25,8 @@ public class Sandwich {
     }
 
     public void addToppings(Toppings topping){
-        for (Toppings topping : toppings){
-            if (topping.equals(topping.getName())){
+        for (Toppings topping : toppings) {
+            if (topping.equals(topping.getName())) {
                 toppings.add(topping);
             }
         }

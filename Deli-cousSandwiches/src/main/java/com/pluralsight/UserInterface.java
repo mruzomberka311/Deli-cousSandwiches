@@ -34,6 +34,8 @@ public void displayMenu(){
             Sandwich sandwich = new Sandwich(size, bread,, isToasted);
             sandwich.addBread(bread);
             sandwich.addToppings();
+            List<Sandwich> sandwichList = new ArrayList<>();
+            sandwichList.add(sandwich);
 
             System.out.println("Sandwich successfully added!");
             break;
@@ -45,6 +47,8 @@ public void displayMenu(){
             String drinkSize = scanner.nextLine();
             Drinks drink = new Drinks(drinkSize,drinkFlavor);
             drink.getPrice(drinkSize);
+            List<Drinks> drinksList = new ArrayList<>();
+            drinksList.add(drink);
             System.out.println("Drink successfully added!");
             break;
         case 3:
@@ -53,11 +57,24 @@ public void displayMenu(){
             String chipType = scanner.nextLine();
             Chips chips = new Chips(chipType);
             chips.getPrice();
-
+            List<Chips> chipsList = new ArrayList<>();
+            chipsList.add(chips);
             System.out.println("Chips successfully added!");
             break;
         case 4:
-            //finish order
+            //checkout
+             int orderNumber = (int) Math.random();
+            Order order = new Order(customerName, orderNumber,sandwichList,drinksList,chipsList);
+
+
+
+            break;
+        case 0 :
+            //cancel order
+          sandwichList.clear();
+          drinksList.clear();
+          chipsList.clear();
+          return;
             break;
         default:
             System.out.println("Please choose an option listed above.");
