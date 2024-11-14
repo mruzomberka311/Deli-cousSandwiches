@@ -17,18 +17,15 @@ public class Drinks
         switch (getSize().toLowerCase()){
             case "small":
                 return 2.00;
-                break;
             case "medium":
                 return 2.50;
-                break;
             case "large":
                 return 3.00;
-                break;
             default:
                 System.out.println("Not a valid drink size");
                 break;
         }
-
+            return 0;
    }
 
     public String getSize()
