@@ -278,27 +278,56 @@ while (running)
         case 2:
             //order drink
             //display drinks menu
-            System.out.println("What drink would you like?");
-            String drinkFlavor = scanner.nextLine();
-            System.out.println("What size drink would you like? small/medium/large");
-            String drinkSize = scanner.nextLine();
-            Drinks drink = new Drinks(drinkSize, drinkFlavor);
-            drink.getPrice(drinkSize);
             List<Drinks> drinksList = new ArrayList<>();
-            drinksList.add(drink);
+            displayDrinksMenu();
+            System.out.println("What drink would you like? Type 'done' to continue");
+            
+
+
             System.out.println("Drink successfully added!");
             break;
+
         case 3:
             //order chips
             //display chips menu
-            System.out.println("What kind of chips would you like?");
-            String chipType = scanner.nextLine();
-            Chips chips = new Chips(chipType);
-            chips.getPrice();
             List<Chips> chipsList = new ArrayList<>();
-            chipsList.add(chips);
+            displayChipsMenu();
+            System.out.println("What kind of chips would you like? Type 'done' to continue");
+            String[] chips = {"Lay's Original", "Doritios Cool Ranch","Lay's Salt and Vinegar","Ruffles Cheddar","Miss Vickie's Jalapeno"};
+            int userChoiceChips = scanner.nextInt();
+            boolean choosingChips = true;
+
+            while (choosingChips){
+                switch (userChoiceChips){
+                    case 1:
+                        Chips laysOriginal = new Chips(chips[0]);
+                        chipsList.add(laysOriginal);
+                        break;
+                    case 2:
+                        Chips coolRanch = new Chips(chips[1]);
+                        chipsList.add(coolRanch);
+                        break;
+                    case 3:
+                        Chips saltAndVinegar = new Chips(chips[2]);
+                        chipsList.add(saltAndVinegar);
+                        break;
+                    case 4:
+                        Chips cheddar = new Chips(chips[3]);
+                        chipsList.add(cheddar);
+                        break;
+                    case 5:
+                        Chips jalapeno = new Chips(chips[4]);
+                        chipsList.add(jalapeno);
+                        break;
+                    default:
+                        System.out.println("Please choose a valid option");
+                        break;
+                }
+            }
             System.out.println("Chips successfully added!");
             break;
+
+
         case 4:
             //checkout
 
@@ -377,9 +406,27 @@ public static void displaySauceMenu(){
 
 
 public static void displayDrinksMenu(){
+    System.out.println("Drinks Menu");
+    System.out.println("1) Coke");
+    System.out.println("2) Sprite");
+    System.out.println("3) Mug");
+    System.out.println("4) Fanta Orange");
+}
 
+
+public static void displayDrinkSize(){
+    System.out.println("Drink sizes:");
+    System.out.println("1) small");
+    System.out.println("2) medium");
+    System.out.println("3) large");
 }
 public static void displayChipsMenu(){
+    System.out.println("Chips Menu");
+    System.out.println("1) Lays Original");
+    System.out.println("2) Doritos Cool Ranch");
+    System.out.println("3) Lays Salt and Vinegar");
+    System.out.println("4) Ruffles Cheddar");
+    System.out.println("5) Miss Vickie's Jalapeno");
 
 }
 
