@@ -6,7 +6,7 @@ public class RecieptFileManager {
 
     }
 
-    public void printReciept(){
+    public void printReciept(Order order){
 
     }
 

@@ -20,17 +20,21 @@ public class Sandwich {
 
     public void addBread(String bread){
      if (bread.equalsIgnoreCase(getBreadType())){
-
+            String breadType = bread;
      }
     }
 
-    public void addToppings(Toppings topping){
+    public void addToppings(List<Toppings> sandwichToppings) {
         for (Toppings topping : toppings) {
-            if (topping.equals(topping.getName())) {
+            if (sandwichToppings.equals(topping.getName())) {
                 toppings.add(topping);
             }
         }
-        }
+    }
+
+    public double getPrice(){
+
+    }
 
 
     public String getSize() {
