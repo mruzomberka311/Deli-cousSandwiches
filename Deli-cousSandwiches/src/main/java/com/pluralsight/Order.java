@@ -37,9 +37,18 @@ public class Order {
 
     }
 
-    public void getTotalPrice(Sandwich sandwich, Toppings topping, Drinks drinks, Chips chips){
-
-
+    public double getTotalPrice(List<Sandwich> sandwichList,List<Drinks> drinksList,List<Chips> chipsList){
+        double total = 0;
+        for (Sandwich sandwich : sandwichList){
+            total += sandwich.getSandwichPrice(sandwich.getSize(), sandwich.getToppings());
+        }
+        for (Chips chip : chipsList){
+            total += chip.getPrice();
+        }
+        for (Drinks drink : drinksList){
+            total += drink.getPrice(drink.getSize());
+        }
+        return total;
      }
 
 
