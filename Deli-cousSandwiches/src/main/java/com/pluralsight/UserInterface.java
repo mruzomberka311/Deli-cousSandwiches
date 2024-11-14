@@ -37,7 +37,7 @@ while (running)
     {
         case 1:
 
-            //Choose the size of sandwich
+            //switch case to choose the size of sandwich
             displaySizes();
             String[] sizes = {"4","8","12"};
             System.out.println("What size sandwich would you like?");
@@ -59,7 +59,7 @@ while (running)
             }
 
 
-            //Choose what bread type
+            //switch case to choose what bread type
             displayBreadMenu();
             String[] breads = {"white", "wheat", "rye", "wrap"};
             System.out.println("What type of bread would you like?");
@@ -84,7 +84,7 @@ while (running)
 
 
 
-
+            //switch case to choose type of meat
             System.out.println("What kind of toppings would you like?");
             //Create a list of toppings and add to sandwich
             List<Toppings> sandwichToppings = new ArrayList<>();
@@ -127,6 +127,8 @@ while (running)
                 }
 
             }
+
+            //switch case to choose the type of cheese
             displayCheeseMenu();
             String[] cheeses = {"american","provolone","cheddar","swiss"};
             System.out.println("What kind of cheese would you like. Type 'done' to continue.");
@@ -159,20 +161,95 @@ while (running)
 
 
 
-
-
-
-
-            System.out.println("What free toppings would you like?");
+            //switch case to choose the type of regular toppings
             displayRegularToppingsMenu();
-            sandwichToppings.add(new RegularToppings(scanner.nextLine()));
+            String[] regularToppings = {"lettuce","peppers","onions","tomatoes","jalapenos","cucumbers","pickles","guacamole","mushrooms"};
+            System.out.println("What free toppings would you like? Type 'done' to continue.");
+            int userChoiceRegularToppings = scanner.nextInt();
+            boolean choosingRegularToppings = true;
 
+            switch (userChoiceRegularToppings){
+                case 1:
+                    RegularToppings lettuce = new RegularToppings(regularToppings[0]);
+                    sandwichToppings.add(lettuce);
+                    break;
+                case 2:
+                    RegularToppings peppers = new RegularToppings(regularToppings[1]);
+                    sandwichToppings.add(peppers);
+                    break;
+                case 3:
+                    RegularToppings onions = new RegularToppings(regularToppings[2]);
+                    sandwichToppings.add(onions);
+                    break;
+                case 4:
+                    RegularToppings tomatoes = new RegularToppings(regularToppings[3]);
+                    sandwichToppings.add(tomatoes);
+                    break;
+                case 5:
+                    RegularToppings jalapenos = new RegularToppings(regularToppings[4]);
+                    sandwichToppings.add(jalapenos);
+                    break;
+                case 6:
+                    RegularToppings cucumbers = new RegularToppings(regularToppings[5]);
+                    sandwichToppings.add(cucumbers);
+                    break;
+                case 7:
+                    RegularToppings pickles = new RegularToppings(regularToppings[6]);
+                    sandwichToppings.add(pickles);
+                    break;
+                case 8:
+                    RegularToppings guacamole = new RegularToppings(regularToppings[7]);
+                    sandwichToppings.add(guacamole);
+                    break;
+                case 9:
+                    RegularToppings mushrooms = new RegularToppings(regularToppings[8]);
+                    sandwichToppings.add(mushrooms);
+                    break;
+                default:
+                    System.out.println("Please choose a valid option");
+            }
+
+            //switch case to choose the kind of sauces
             displaySauceMenu();
-            sandwichToppings.add(new Sauce(scanner.nextLine()));
+            String[] sauces = {"mayo","mustard","ketchup","ranch","thousand island","vinaigrette"};
+            System.out.println("What sauces would you like. Type 'done' to continue");
+            int userChoiceSauce = scanner.nextInt();
+            boolean choosingSauces = true;
+            while (choosingSauces){
+                switch (userChoiceSauce){
+                    case 1:
+                        Sauce mayo = new Sauce(sauces[0]);
+                        sandwichToppings.add(mayo);
+                        break;
+                    case 2:
+                        Sauce mustard = new Sauce(sauces[1]);
+                        sandwichToppings.add(mustard);
+                        break;
+                    case 3:
+                        Sauce ketchup = new Sauce(sauces[2]);
+                        sandwichToppings.add(ketchup);
+                        break;
+                    case 4:
+                        Sauce ranch = new Sauce(sauces[3]);
+                        sandwichToppings.add(ranch);
+                        break;
+                    case 5:
+                        Sauce thousandIsland = new Sauce(sauces[4]);
+                        sandwichToppings.add(thousandIsland);
+                        break;
+                    case 6:
+                        Sauce vinaigrette = new Sauce(sauces[5]);
+                        sandwichToppings.add(vinaigrette);
+                        break;
+                    default:
+                        System.out.println("Please choose a valid option");
+                        break;
+                }
+            }
 
-
-            System.out.println("Would you like your sandwich toasted? true/false");
-            boolean isToasted = scanner.nextBoolean();
+            //istoasted if statement
+            System.out.println("Would you like your sandwich toasted? yes/no");
+            boolean isToasted;
 
             Sandwich sandwich = new Sandwich(size, breadType, sandwichToppings, isToasted);
             sandwich.addBread(breadType);
