@@ -42,7 +42,7 @@ while (running)
             String[] sizes = {"4","8","12"};
             System.out.println("What size sandwich would you like?");
             int userChoiceSize = scanner.nextInt();
-            String size;
+            String size = "";
             switch (userChoiceSize){
                 case 1:
                     size = sizes[0];
@@ -64,7 +64,7 @@ while (running)
             String[] breads = {"white", "wheat", "rye", "wrap"};
             System.out.println("What type of bread would you like?");
             int userChoiceBread = scanner.nextInt();
-            String breadType;
+            String breadType = "";
             switch (userChoiceBread){
                 case 1:
                      breadType = breads[0];
@@ -269,6 +269,7 @@ while (running)
             Sandwich sandwich = new Sandwich(size, breadType, sandwichToppings, isToasted);
             sandwich.addBread(breadType);
             sandwich.addToppings(sandwichToppings);
+
             List<Sandwich> sandwichList = new ArrayList<>();
             sandwichList.add(sandwich);
 
