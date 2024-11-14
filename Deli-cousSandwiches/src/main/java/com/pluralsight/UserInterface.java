@@ -88,9 +88,9 @@ while (running)
             System.out.println("What kind of toppings would you like?");
             //Create a list of toppings and add to sandwich
             List<Toppings> sandwichToppings = new ArrayList<>();
-            boolean chooseingMeats = true;
+            boolean choosingMeats = true;
 
-            while (chooseingMeats) {
+            while (choosingMeats) {
                 displayMeatMenu();
                 System.out.println("What kind of meat would you like. Type 'done' to continue.");
                 String[] meats = {"steak", "ham", "salami","roast beef","chicken","bacon"};
@@ -125,6 +125,11 @@ while (running)
                         break;
 
                 }
+                String stopMeats = scanner.nextLine();
+                if (stopMeats.equalsIgnoreCase("done"))
+                {
+                    choosingMeats = false;
+                }
 
             }
 
@@ -157,6 +162,11 @@ while (running)
                         System.out.println("Please choose a valid option");
                         break;
                 }
+                String stopCheese = scanner.nextLine();
+                if (stopCheese.equalsIgnoreCase("done"))
+                {
+                    choosingCheese = false;
+                }
             }
 
 
@@ -168,45 +178,52 @@ while (running)
             int userChoiceRegularToppings = scanner.nextInt();
             boolean choosingRegularToppings = true;
 
-            switch (userChoiceRegularToppings){
-                case 1:
-                    RegularToppings lettuce = new RegularToppings(regularToppings[0]);
-                    sandwichToppings.add(lettuce);
-                    break;
-                case 2:
-                    RegularToppings peppers = new RegularToppings(regularToppings[1]);
-                    sandwichToppings.add(peppers);
-                    break;
-                case 3:
-                    RegularToppings onions = new RegularToppings(regularToppings[2]);
-                    sandwichToppings.add(onions);
-                    break;
-                case 4:
-                    RegularToppings tomatoes = new RegularToppings(regularToppings[3]);
-                    sandwichToppings.add(tomatoes);
-                    break;
-                case 5:
-                    RegularToppings jalapenos = new RegularToppings(regularToppings[4]);
-                    sandwichToppings.add(jalapenos);
-                    break;
-                case 6:
-                    RegularToppings cucumbers = new RegularToppings(regularToppings[5]);
-                    sandwichToppings.add(cucumbers);
-                    break;
-                case 7:
-                    RegularToppings pickles = new RegularToppings(regularToppings[6]);
-                    sandwichToppings.add(pickles);
-                    break;
-                case 8:
-                    RegularToppings guacamole = new RegularToppings(regularToppings[7]);
-                    sandwichToppings.add(guacamole);
-                    break;
-                case 9:
-                    RegularToppings mushrooms = new RegularToppings(regularToppings[8]);
-                    sandwichToppings.add(mushrooms);
-                    break;
-                default:
-                    System.out.println("Please choose a valid option");
+            while (choosingRegularToppings) {
+                switch (userChoiceRegularToppings) {
+                    case 1:
+                        RegularToppings lettuce = new RegularToppings(regularToppings[0]);
+                        sandwichToppings.add(lettuce);
+                        break;
+                    case 2:
+                        RegularToppings peppers = new RegularToppings(regularToppings[1]);
+                        sandwichToppings.add(peppers);
+                        break;
+                    case 3:
+                        RegularToppings onions = new RegularToppings(regularToppings[2]);
+                        sandwichToppings.add(onions);
+                        break;
+                    case 4:
+                        RegularToppings tomatoes = new RegularToppings(regularToppings[3]);
+                        sandwichToppings.add(tomatoes);
+                        break;
+                    case 5:
+                        RegularToppings jalapenos = new RegularToppings(regularToppings[4]);
+                        sandwichToppings.add(jalapenos);
+                        break;
+                    case 6:
+                        RegularToppings cucumbers = new RegularToppings(regularToppings[5]);
+                        sandwichToppings.add(cucumbers);
+                        break;
+                    case 7:
+                        RegularToppings pickles = new RegularToppings(regularToppings[6]);
+                        sandwichToppings.add(pickles);
+                        break;
+                    case 8:
+                        RegularToppings guacamole = new RegularToppings(regularToppings[7]);
+                        sandwichToppings.add(guacamole);
+                        break;
+                    case 9:
+                        RegularToppings mushrooms = new RegularToppings(regularToppings[8]);
+                        sandwichToppings.add(mushrooms);
+                        break;
+                    default:
+                        System.out.println("Please choose a valid option");
+                }
+                String stopRegularToppings = scanner.nextLine();
+                if (stopRegularToppings.equalsIgnoreCase("done"))
+                {
+                    choosingRegularToppings = false;
+                }
             }
 
             //switch case to choose the kind of sauces
@@ -215,6 +232,7 @@ while (running)
             System.out.println("What sauces would you like. Type 'done' to continue");
             int userChoiceSauce = scanner.nextInt();
             boolean choosingSauces = true;
+
             while (choosingSauces){
                 switch (userChoiceSauce){
                     case 1:
@@ -244,6 +262,11 @@ while (running)
                     default:
                         System.out.println("Please choose a valid option");
                         break;
+                }
+                String stopSauce = scanner.nextLine();
+                if (stopSauce.equalsIgnoreCase("done"))
+                {
+                    choosingSauces = false;
                 }
             }
 
@@ -305,9 +328,7 @@ while (running)
             String[] flavors = {"coke","sprite","mug","fanta orange"};
             System.out.println("What drink would you like? Type 'done' to continue");
             int userChoiceFlavor = scanner.nextInt();
-            boolean choosingFlavor = true;
 
-            while (choosingFlavor){
                 switch (userChoiceFlavor){
                     case 1:
                         Drinks coke = new Drinks(flavors[0],drinkSize);
@@ -329,7 +350,6 @@ while (running)
                         System.out.println("Please enter a valid option");
                         break;
                 }
-            }
 
             System.out.println("Drink successfully added!");
             break;
@@ -342,9 +362,7 @@ while (running)
             System.out.println("What kind of chips would you like? Type 'done' to continue");
             String[] chips = {"Lay's Original", "Doritios Cool Ranch","Lay's Salt and Vinegar","Ruffles Cheddar","Miss Vickie's Jalapeno"};
             int userChoiceChips = scanner.nextInt();
-            boolean choosingChips = true;
 
-            while (choosingChips){
                 switch (userChoiceChips){
                     case 1:
                         Chips laysOriginal = new Chips(chips[0]);
@@ -370,7 +388,7 @@ while (running)
                         System.out.println("Please choose a valid option");
                         break;
                 }
-            }
+
             System.out.println("Chips successfully added!");
             break;
 
@@ -382,9 +400,6 @@ while (running)
             break;
         case 0:
             //cancel order
-            sandwichList.clear();
-            drinksList.clear();
-            chipsList.clear();
             running = false;
         break;
         default:
@@ -482,7 +497,7 @@ public void addOrder(){
 }
 
 public Order getOrder(){
-
+return null;
 }
 
 }
