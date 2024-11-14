@@ -248,12 +248,27 @@ while (running)
             }
 
             //istoasted if statement
-            System.out.println("Would you like your sandwich toasted? yes/no");
             boolean isToasted;
+            System.out.println("Would you like your sandwich toasted? yes/no");
+            String answer = scanner.nextLine();
+            if (answer.equalsIgnoreCase("yes"))
+            {
+                isToasted = true;
+            }
+            if (answer.equalsIgnoreCase("no"))
+            {
+                isToasted = false;
+            }
+            else
+            {
+                System.out.println("Invalid choice");
+                return;
+            }
+
 
             Sandwich sandwich = new Sandwich(size, breadType, sandwichToppings, isToasted);
             sandwich.addBread(breadType);
-            sandwich.addToppings();
+            sandwich.addToppings(sandwichToppings);
             List<Sandwich> sandwichList = new ArrayList<>();
             sandwichList.add(sandwich);
 
