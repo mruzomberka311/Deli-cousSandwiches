@@ -406,6 +406,7 @@ while (running)
             System.out.println("Please choose an option listed above.");
             break;
     }
+
 }
 }
 
@@ -492,12 +493,13 @@ public static void displayChipsMenu(){
 
 }
 
-public void addOrder(){
 
+public void addOrder(String customerName, int orderNumber, List<Sandwich> sandwichList, List<Drinks>drinksList, List<Chips> chipsList){
+Order order = new Order(customerName, orderNumber, sandwichList, drinksList,chipsList);
 }
 
-public Order getOrder(){
-return null;
+public Order getOrder(Order order){
+return order;
 }
 
 }

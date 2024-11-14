@@ -57,6 +57,7 @@ public class Order {
     }
 
     public int getOrderNumber() {
+       int orderNumber = (int) Math.random() * 101;
         return orderNumber;
     }
 
