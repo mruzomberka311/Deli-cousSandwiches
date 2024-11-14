@@ -279,10 +279,56 @@ while (running)
             //order drink
             //display drinks menu
             List<Drinks> drinksList = new ArrayList<>();
-            displayDrinksMenu();
-            System.out.println("What drink would you like? Type 'done' to continue");
-            
+            displayDrinkSize();
+            String[] drinkSizes = {"small","medium","large"};
+            System.out.println("What size drink would you like?");
+            int sizeInput = scanner.nextInt();
+            String drinkSize = "";
 
+            switch (sizeInput){
+                case 1:
+                    drinkSize = drinkSizes[0];
+                    break;
+                case 2:
+                    drinkSize = drinkSizes[1];
+                    break;
+                case 3:
+                    drinkSize = drinkSizes[2];
+                    break;
+                default:
+                    System.out.println("Please choose a valid option");
+                    break;
+            }
+
+            displayDrinksMenu();
+            String[] flavors = {"coke","sprite","mug","fanta orange"};
+            System.out.println("What drink would you like? Type 'done' to continue");
+            int userChoiceFlavor = scanner.nextInt();
+            boolean choosingFlavor = true;
+
+            while (choosingFlavor){
+                switch (userChoiceFlavor){
+                    case 1:
+                        Drinks coke = new Drinks(flavors[0],drinkSize);
+                        drinksList.add(coke);
+                        break;
+                    case 2:
+                        Drinks sprite = new Drinks(flavors[1],drinkSize);
+                        drinksList.add(sprite);
+                        break;
+                    case 3:
+                        Drinks mug = new Drinks(flavors[2],drinkSize);
+                        drinksList.add(mug);
+                        break;
+                    case 4:
+                        Drinks fanta = new Drinks(flavors[3],drinkSize);
+                        drinksList.add(fanta);
+                        break;
+                    default:
+                        System.out.println("Please enter a valid option");
+                        break;
+                }
+            }
 
             System.out.println("Drink successfully added!");
             break;
