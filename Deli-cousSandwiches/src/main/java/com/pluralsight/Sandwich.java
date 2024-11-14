@@ -21,6 +21,7 @@ public class Sandwich {
     public void addBread(String bread){
      if (bread.equalsIgnoreCase(getBreadType())){
             String breadType = bread;
+            //Needs work
      }
     }
 
@@ -32,7 +33,25 @@ public class Sandwich {
         }
     }
 
-    public double getPrice(){
+    public double getPrice(String size, List<Toppings> sandwichToppings){
+        double basePrice = 0;
+        switch (size){
+            case "4":
+                basePrice = 5.50;
+                break;
+            case "8":
+                basePrice = 7.00;
+                break;
+            case "12":
+                basePrice = 8.50;
+            default:
+                basePrice = 0;
+                break;
+        }
+
+        for (Toppings topping : sandwichToppings) {
+            topping.getPrice(String size);
+        }
 
     }
 
