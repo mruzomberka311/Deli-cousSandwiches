@@ -8,7 +8,7 @@ import java.util.Scanner;
 public class UserInterface
 {
 Scanner scanner = new Scanner(System.in);
-Order order = new Order();
+
 
 
 
@@ -89,33 +89,80 @@ while (running)
             //Create a list of toppings and add to sandwich
             List<Toppings> sandwichToppings = new ArrayList<>();
             boolean chooseingMeats = true;
-            while (chooseingMeats) {
-                String[] meats = {"steak", "ham", "salami",};
-                int userChoice = scanner.nextInt();
-                switch (userChoice) {
-                    case 1:
 
+            while (chooseingMeats) {
+                displayMeatMenu();
+                System.out.println("What kind of meat would you like. Type 'done' to continue.");
+                String[] meats = {"steak", "ham", "salami","roast beef","chicken","bacon"};
+                int userChoiceMeat = scanner.nextInt();
+                switch (userChoiceMeat) {
+                    case 1:
+                        Meat steak = new Meat(meats[0]);
+                        sandwichToppings.add(steak);
                         break;
                     case 2:
+                        Meat ham = new Meat(meats[1]);
+                        sandwichToppings.add(ham);
                         break;
                     case 3:
+                        Meat salami = new Meat(meats[2]);
+                        sandwichToppings.add(salami);
+                        break;
+                    case 4:
+                        Meat roastBeef = new Meat(meats[3]);
+                        sandwichToppings.add(roastBeef);
+                        break;
+                    case 5:
+                        Meat chicken = new Meat(meats[4]);
+                        sandwichToppings.add(chicken);
+                        break;
+                    case 6:
+                        Meat bacon = new Meat(meats[5]);
+                        sandwichToppings.add(bacon);
+                        break;
+                    default:
+                        System.out.println("Please choose a valid option");
                         break;
 
                 }
 
-                displayMeatMenu();
-                System.out.println("What meat would you like? Type 'done' to continue");
-                sandwichToppings.add(new Meat());
+            }
+            displayCheeseMenu();
+            String[] cheeses = {"american","provolone","cheddar","swiss"};
+            System.out.println("What kind of cheese would you like. Type 'done' to continue.");
+            int userChoiceCheese = scanner.nextInt();
+            boolean choosingCheese = true;
 
+            while (choosingCheese){
+                switch (userChoiceCheese){
+                    case 1:
+                        Cheese american = new Cheese(cheeses[0]);
+                        sandwichToppings.add(american);
+                        break;
+                    case 2:
+                        Cheese provolone = new Cheese(cheeses[1]);
+                        sandwichToppings.add(provolone);
+                        break;
+                    case 3:
+                        Cheese cheddar = new Cheese(cheeses[2]);
+                        sandwichToppings.add(cheddar);
+                        break;
+                    case 4:
+                        Cheese swiss = new Cheese(cheeses[3]);
+                        sandwichToppings.add(swiss);
+                        break;
+                    default:
+                        System.out.println("Please choose a valid option");
+                        break;
+                }
             }
 
 
 
 
 
-            System.out.println("What kind of cheese would you like?");
-            displayCheeseMenu();
-            sandwichToppings.add(new Cheese(scanner.nextLine()));
+
+
             System.out.println("What free toppings would you like?");
             displayRegularToppingsMenu();
             sandwichToppings.add(new RegularToppings(scanner.nextLine()));
@@ -128,7 +175,7 @@ while (running)
             boolean isToasted = scanner.nextBoolean();
 
             Sandwich sandwich = new Sandwich(size, breadType, sandwichToppings, isToasted);
-            sandwich.addBread(bread);
+            sandwich.addBread(breadType);
             sandwich.addToppings();
             List<Sandwich> sandwichList = new ArrayList<>();
             sandwichList.add(sandwich);
