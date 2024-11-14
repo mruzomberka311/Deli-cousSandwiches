@@ -18,24 +18,24 @@ public class Order {
         this.chips = chips;
     }
 
-    public void addSandwich(Sandwich sandwich){
-    order.add(sandwich);
+    public void addSandwich(Order order, List<Sandwich> sandwichList){
+
     }
 
     public void addDrink(Drinks drink){
-    order.add(drink);
+
     }
 
     public void addChips(Chips chips){
-    order.add(chips);
+
     }
 
-    public void displayOrder(){
-        for (int i = 0; i < order.length; i++) {
-            System.out.println(order.get[i]);
+    public void displayOrder(Order order){
+        order.toString();
+        System.out.println(order);
         }
 
-    }
+
 
     public double getTotalPrice(List<Sandwich> sandwichList,List<Drinks> drinksList,List<Chips> chipsList){
         double total = 0;
@@ -83,5 +83,10 @@ public class Order {
 
     public void setChips(List<Chips> chips) {
         this.chips = chips;
+    }
+
+
+    public String toString(){
+        return customerName + "/n" + orderNumber + "/n" + sandwiches + "" + drinks + "/n" + chips + "/n" + getTotalPrice(sandwiches, drinks, chips) + "/n" ;
     }
 }

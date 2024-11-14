@@ -396,6 +396,7 @@ while (running)
         case 4:
             //checkout
 
+            System.out.println("Thank you for your money! Have a good day!");
 
             break;
         case 0:
