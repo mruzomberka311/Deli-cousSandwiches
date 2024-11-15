@@ -10,6 +10,7 @@ public class UserInterface
     private String customerName;
     private int orderNumber;
     private List<Sandwich> sandwichList;
+    private List<Toppings> sandwichToppings;
     private List<Drinks> drinksList;
     private List<Chips> chipsList;
     private Order order;
@@ -20,22 +21,31 @@ public class UserInterface
 
     public UserInterface() {
         this.customerName = "mort";
-        this.orderNumber = 7;
+        this.orderNumber = 99;
+        //Order number is not useful now, but I am keeping it in case I would like to add multiple orders.
         this.sandwichList = new ArrayList<>();
+        this.sandwichToppings = new ArrayList<>();
         this.drinksList = new ArrayList<>();
         this.chipsList = new ArrayList<>();
 
-    }
 
+    }
+//Main menu
     public void displayMenu()
 {
     System.out.println("Welcome to the Krusty Krab my name is Squidwarddd. How may I help you?");
     System.out.println("1) New Order");
     System.out.println("0) Exit");
+    int menuChoice = scanner.nextInt();
+    boolean running = false;
+    if (menuChoice == 1){
+        running = true;
+    }
+    else if (menuChoice == 0)
+    {
+        running = false;
+    }
 
-
-
-    boolean running = true;
 
 while (running)
 {
@@ -103,7 +113,7 @@ while (running)
             //switch case to choose type of meat
             System.out.println("What kind of toppings would you like?");
             //Create a list of toppings and add to sandwich
-            List<Toppings> sandwichToppings = new ArrayList<>();
+
             boolean choosingMeats = true;
 
             while (choosingMeats) {
@@ -118,6 +128,7 @@ while (running)
                     case 1:
                         Meat steak = new Meat(meats[0]);
                         sandwichToppings.add(steak);
+
                         break;
                     case 2:
                         Meat ham = new Meat(meats[1]);
@@ -148,13 +159,15 @@ while (running)
             }
 
             //switch case to choose the type of cheese
-            displayCheeseMenu();
-            String[] cheeses = {"american","provolone","cheddar","swiss"};
-            System.out.println("What kind of cheese would you like. Type '0' to continue.");
-            int userChoiceCheese = scanner.nextInt();
+
             boolean choosingCheese = true;
 
             while (choosingCheese){
+                displayCheeseMenu();
+                String[] cheeses = {"american","provolone","cheddar","swiss"};
+                System.out.println("What kind of cheese would you like. Type '0' to continue.");
+                int userChoiceCheese = scanner.nextInt();
+
                 switch (userChoiceCheese){
                     case 0:
                         choosingCheese = false;
@@ -184,19 +197,23 @@ while (running)
 
 
             //switch case to choose the type of regular toppings
-            displayRegularToppingsMenu();
-            String[] regularToppings = {"lettuce","peppers","onions","tomatoes","jalapenos","cucumbers","pickles","guacamole","mushrooms"};
-            System.out.println("What free toppings would you like? Type '0' to continue.");
-            int userChoiceRegularToppings = scanner.nextInt();
+
             boolean choosingRegularToppings = true;
 
             while (choosingRegularToppings) {
+                displayRegularToppingsMenu();
+                String[] regularToppings = {"lettuce","peppers","onions","tomatoes","jalapenos","cucumbers","pickles","guacamole","mushrooms"};
+                System.out.println("What free toppings would you like? Type '0' to continue.");
+                int userChoiceRegularToppings = scanner.nextInt();
+
                 switch (userChoiceRegularToppings) {
                     case 0:
                         choosingRegularToppings = false;
                     case 1:
+                        System.out.println("!" + sandwichToppings.size());
                         RegularToppings lettuce = new RegularToppings(regularToppings[0]);
                         sandwichToppings.add(lettuce);
+                        System.out.println("!" + sandwichToppings.size());
                         break;
                     case 2:
                         RegularToppings peppers = new RegularToppings(regularToppings[1]);
@@ -237,13 +254,15 @@ while (running)
             }
 
             //switch case to choose the kind of sauces
-            displaySauceMenu();
-            String[] sauces = {"mayo","mustard","ketchup","ranch","thousand island","vinaigrette"};
-            System.out.println("What sauces would you like. Type '0' to continue");
-            int userChoiceSauce = scanner.nextInt();
+
             boolean choosingSauces = true;
 
             while (choosingSauces){
+                displaySauceMenu();
+                String[] sauces = {"mayo","mustard","ketchup","ranch","thousand island","vinaigrette"};
+                System.out.println("What sauces would you like. Type '0' to continue");
+                int userChoiceSauce = scanner.nextInt();
+
                 switch (userChoiceSauce){
                     case 0:
                         choosingSauces = false;
@@ -280,38 +299,33 @@ while (running)
             }
 
             //istoasted if statement
-            boolean isToasted;
-            System.out.println("Would you like your sandwich toasted? yes/no");
-            String answer = scanner.nextLine();
-            if (answer.equalsIgnoreCase("yes"))
-            {
-                isToasted = true;
-            }
-            if (answer.equalsIgnoreCase("no"))
-            {
-                isToasted = false;
-            }
-            else
-            {
-                System.out.println("Invalid choice");
-                return;
+            boolean isToasted = false;
+            System.out.println("Would you like your sandwich toasted?  1) yes/ 2)no");
+            int answer = scanner.nextInt();
+            switch (answer){
+                case 1:
+                    isToasted = true;
+                    break;
+                case 2:
+                    isToasted = false;
+                    break;
+                default:
+                    System.out.println("Please choose a valid option");
+                    break;
             }
 
 
             Sandwich sandwich = new Sandwich(size, breadType, sandwichToppings, isToasted);
             sandwich.addBread(breadType);
             sandwich.addToppings(sandwichToppings);
-
-            List<Sandwich> sandwichList = new ArrayList<>();
             sandwichList.add(sandwich);
-
+            sandwichToppings.clear();
             System.out.println("Sandwich successfully added!");
             break;
 
         case 2:
             //order drink
             //display drinks menu
-            List<Drinks> drinksList = new ArrayList<>();
             displayDrinkSize();
             String[] drinkSizes = {"small","medium","large"};
             System.out.println("What size drink would you like?");
@@ -340,19 +354,19 @@ while (running)
 
                 switch (userChoiceFlavor){
                     case 1:
-                        Drinks coke = new Drinks(flavors[0],drinkSize);
+                        Drinks coke = new Drinks(drinkSize,flavors[0]);
                         drinksList.add(coke);
                         break;
                     case 2:
-                        Drinks sprite = new Drinks(flavors[1],drinkSize);
+                        Drinks sprite = new Drinks(drinkSize,flavors[1]);
                         drinksList.add(sprite);
                         break;
                     case 3:
-                        Drinks mug = new Drinks(flavors[2],drinkSize);
+                        Drinks mug = new Drinks(drinkSize,flavors[2]);
                         drinksList.add(mug);
                         break;
                     case 4:
-                        Drinks fanta = new Drinks(flavors[3],drinkSize);
+                        Drinks fanta = new Drinks(drinkSize,flavors[3]);
                         drinksList.add(fanta);
                         break;
                     default:
@@ -367,7 +381,6 @@ while (running)
             //order chips
             //display chips menu
             displayChipsMenu();
-            List<Chips> chipsList = new ArrayList<>();
             System.out.println("What kind of chips would you like?");
             String[] chips = {"Lay's Original", "Doritios Cool Ranch","Lay's Salt and Vinegar","Ruffles Cheddar","Miss Vickie's Jalapeno"};
             int userChoiceChips = scanner.nextInt();
@@ -404,33 +417,35 @@ while (running)
 
         case 4:
             //checkout
-
-
-
+            RecieptFileManager manager = new RecieptFileManager();
+            order = new Order(customerName,orderNumber,sandwichList,drinksList,chipsList);
+            System.out.println(order.toString());
+            manager.printReciept(order);
+            running = false;
             break;
         case 0:
             //cancel order
             running = false;
-        break;
+            break;
         default:
             System.out.println("Please choose an option listed above.");
             break;
     }
 
 }
-    order = new Order(customerName,orderNumber,sandwichList,drinksList,chipsList);
+
 }
 
 
 public static void displaySizes(){
-    System.out.println("/n Sandwich sizes");
+    System.out.println("Sandwich sizes");
     System.out.println("1) 4'");
     System.out.println("2) 8'");
     System.out.println("3) 12'");
 }
 
 public static void displayBreadMenu(){
-    System.out.println("/n Bread Menu");
+    System.out.println("Bread Menu");
     System.out.println("1) white");
     System.out.println("2) wheat");
     System.out.println("3) rye");
@@ -438,7 +453,7 @@ public static void displayBreadMenu(){
 
 }
 public static void displayMeatMenu(){
-    System.out.println("/n Meat Menu");
+    System.out.println("Meat Menu");
     System.out.println("1) steak");
     System.out.println("2) ham");
     System.out.println("3) salami");
@@ -447,7 +462,7 @@ public static void displayMeatMenu(){
     System.out.println("6) bacon");
 }
 public static void displayCheeseMenu(){
-    System.out.println("/n Cheese Menu");
+    System.out.println("Cheese Menu");
     System.out.println("1) american");
     System.out.println("2) provolone");
     System.out.println("3) cheddar");
@@ -456,7 +471,7 @@ public static void displayCheeseMenu(){
 }
 
 public static void displayRegularToppingsMenu(){
-    System.out.println("/n Regular Toppings Menu");
+    System.out.println( "Regular Toppings Menu");
     System.out.println("1) lettuce");
     System.out.println("2) peppers");
     System.out.println("3) onions");
@@ -468,7 +483,7 @@ public static void displayRegularToppingsMenu(){
     System.out.println("9) mushrooms");
 }
 public static void displaySauceMenu(){
-    System.out.println("/n Sauce Menu");
+    System.out.println("Sauce Menu");
     System.out.println("1) mayo");
     System.out.println("2) mustard");
     System.out.println("3) ketchup");

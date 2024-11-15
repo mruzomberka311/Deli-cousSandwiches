@@ -1,7 +1,7 @@
 package com.pluralsight;
 
 public abstract class Toppings {
-    private String name;
+    protected String name;
 
 
     public Toppings(String name) {
@@ -14,3 +14,6 @@ public abstract class Toppings {
 
     public abstract double getPrice(String size);
 }
+
+
+

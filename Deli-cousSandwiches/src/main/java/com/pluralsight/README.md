@@ -8,7 +8,7 @@ totaling the price in the end. The receipt that displays the orders contents on 
 a basic POS system. 
 
 
-![Class Diagram](path/to/your/class_diagram.png)
+- [Updated-Capstone2 diagram.drawio](..%2F..%2F..%2F..%2F..%2F..%2F..%2FUpdated-Capstone2%20diagram.drawio)
 
 ## User Stories
 
@@ -42,14 +42,18 @@ Follow these steps to get your application running within IntelliJ IDEA:
 
 ## Demo
 
-Include screenshots or GIFs that show your application in action. Use tools like [Giphy Capture](https://giphy.com/apps/giphycapture) to record a GIF of your application.
-
-![Application Screenshot](path/to/your/screenshot.png)
+- ![Screenshot (43).png](..%2F..%2F..%2F..%2F..%2F..%2F..%2F..%2F..%2F..%2FPictures%2FScreenshots%2FScreenshot%20%2843%29.png)
+- ![Screenshot (44).png](..%2F..%2F..%2F..%2F..%2F..%2F..%2F..%2F..%2F..%2FPictures%2FScreenshots%2FScreenshot%20%2844%29.png)
+- ![Screenshot (45).png](..%2F..%2F..%2F..%2F..%2F..%2F..%2F..%2F..%2F..%2FPictures%2FScreenshots%2FScreenshot%20%2845%29.png)
+- ![Screenshot (46).png](..%2F..%2F..%2F..%2F..%2F..%2F..%2F..%2F..%2F..%2FPictures%2FScreenshots%2FScreenshot%20%2846%29.png)
+- ![Screenshot (47).png](..%2F..%2F..%2F..%2F..%2F..%2F..%2F..%2F..%2F..%2FPictures%2FScreenshots%2FScreenshot%20%2847%29.png)
+- ![Screenshot (48).png](..%2F..%2F..%2F..%2F..%2F..%2F..%2F..%2F..%2F..%2FPictures%2FScreenshots%2FScreenshot%20%2848%29.png)
 
 ## Future Work
 
 - I would have liked to have integrated Enums to simplify the project further.
-- Instead of a random order number, have the order number count and reset every time it reaches 100.
+- Instead of a random order number, have the order number count by 1 and reset every time it reaches 100.
+- Overall, I would have liked to make the receipt look nicer. 
 
 ## Resources
 - https://yearup.brightspace.com/d2l/le/enhancedSequenceViewer/8605?url=https%3A%2F%2Fa8aef0e2-4090-467b-bc7e-c872d64ba733.sequences.api.brightspace.com%2F8605%2Factivity%2F115090%3FfilterOnDatesAndDepth%3D1

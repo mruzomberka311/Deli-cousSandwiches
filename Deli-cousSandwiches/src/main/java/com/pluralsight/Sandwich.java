@@ -26,11 +26,10 @@ public class Sandwich {
     }
 
     public void addToppings(List<Toppings> sandwichToppings) {
-        for (Toppings topping : toppings) {
-            if (sandwichToppings.equals(topping.getName())) {
+        for (Toppings topping : sandwichToppings) {
                 toppings.add(topping);
             }
-        }
+
     }
 
     public double getSandwichPrice(String size, List<Toppings> sandwichToppings){
@@ -72,5 +71,17 @@ public class Sandwich {
 
     public boolean isToasted() {
         return isToasted;
+    }
+
+    public String toString(){
+        String top = "";
+        for (Toppings topping : toppings){
+            top += topping.getName() + ",";
+        }
+        String toasted = " (not toasted) ";
+        if (isToasted){
+            toasted = " (toasted) ";
+        }
+        return getSize() +" inch " + getBreadType() + " Toppings: "  + top + toasted + "...$" + getSandwichPrice(size,toppings);
     }
 }

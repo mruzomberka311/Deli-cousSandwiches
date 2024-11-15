@@ -1,5 +1,6 @@
 package com.pluralsight;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -32,11 +33,6 @@ public class Order {
     public void addChips(Chips chipsList){
     chips.add(chipsList);
     }
-
-    public void displayOrder(Order order){
-        order.toString();
-        System.out.println(order);
-        }
 
 
 
@@ -90,6 +86,20 @@ public class Order {
 
 
     public String toString(){
-        return customerName + "/n" + orderNumber + "/n" + sandwiches + "" + drinks + "/n" + chips + "/n" + getTotalPrice(sandwiches, drinks, chips) + "/n" ;
+        String sand = "";
+        for (Sandwich sandwich : sandwiches){
+            sand += sandwich.toString() + "\n";
+        }
+        String d = "";
+        for (Drinks drink : drinks){
+            d += drink.toString() + "\n";
+        }
+        String c = "";
+        for (Chips chip : chips){
+            c += chip.toString() + "\n";
+        }
+
+        return "Customer: " + customerName + "\n" + "ON: "  + orderNumber + "\n" + sand + "\n" + d + "\n" + c + "\n" +
+                " Total ........................ $"+ getTotalPrice(sandwiches, drinks, chips) + "\n";
     }
 }

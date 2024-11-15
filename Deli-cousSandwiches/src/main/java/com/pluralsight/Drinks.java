@@ -37,4 +37,9 @@ public class Drinks
     {
         return flavor;
     }
+
+
+    public String toString(){
+        return size + " ," + flavor + "............... $" + getPrice(size);
+    }
 }
