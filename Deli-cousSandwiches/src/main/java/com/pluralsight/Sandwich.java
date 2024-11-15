@@ -38,15 +38,16 @@ public class Sandwich {
         switch (size){
             case "4":
                 basePrice = 5.50;
-
+                break;
             case "8":
                 basePrice = 7.00;
-
+                break;
             case "12":
                 basePrice = 8.50;
+                break;
             default:
                 basePrice = 0;
-
+                break;
         }
 
         for (Toppings topping : sandwichToppings) {

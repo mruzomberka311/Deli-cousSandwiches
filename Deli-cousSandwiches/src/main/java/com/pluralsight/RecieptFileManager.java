@@ -7,20 +7,12 @@ import java.io.FileWriter;
 
 public class RecieptFileManager {
 
-    public void saveOrder(){
-
-    }
-
-    public void printReciept(Order order)
-    {
+    public void printReciept(Order order) {
         File file = new File("receipts.txt");
-        try
-        {
-            if (!file.exists())
-            {
+        try {
+            if (!file.exists()) {
                 file.createNewFile();
-            } else
-            {
+            } else {
                 FileWriter fileWriter = new FileWriter("receipts.txt");
                 BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
                 bufferedWriter.write(order.toString());
@@ -32,7 +24,5 @@ public class RecieptFileManager {
             e.printStackTrace();
         }
 
-
-
-
     }
+}

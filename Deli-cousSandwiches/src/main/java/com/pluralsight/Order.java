@@ -1,6 +1,8 @@
 package com.pluralsight;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 public class Order {
     private String customerName;
@@ -9,8 +11,9 @@ public class Order {
     private List<Drinks> drinks;
     private List<Chips> chips;
 
+    Scanner scanner = new Scanner(System.in);
 
-    public Order(String customerName, int orderNumber, List<Sandwich> sandwiches,List<Drinks> drinks, List<Chips> chips) {
+    public Order(String customerName, int orderNumber,List<Sandwich> sandwiches,List<Drinks> drinks, List<Chips> chips) {
         this.customerName = customerName;
         this.orderNumber = orderNumber;
         this.sandwiches = sandwiches;
@@ -18,16 +21,16 @@ public class Order {
         this.chips = chips;
     }
 
-    public void addSandwich(Order order, List<Sandwich> sandwichList){
-
+    public void addSandwich(Order order,Sandwich sandwichList){
+     sandwiches.add(sandwichList);
     }
 
-    public void addDrink(Drinks drink){
-
+    public void addDrink(Drinks drinkList){
+     drinks.add(drinkList);
     }
 
-    public void addChips(Chips chips){
-
+    public void addChips(Chips chipsList){
+    chips.add(chipsList);
     }
 
     public void displayOrder(Order order){
