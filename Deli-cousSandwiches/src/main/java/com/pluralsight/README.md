@@ -8,8 +8,9 @@ totaling the price in the end. The receipt that displays the orders contents on 
 a basic POS system. 
 
 
-- ![Screenshot (49)](https://github.com/user-attachments/assets/b7689775-fbe2-4913-95ff-7a58290dbe01)
-- ![Screenshot (50)](https://github.com/user-attachments/assets/461d99a7-8da3-41f0-b255-5bf378afa06e)
+- ![Screenshot (49)](https://github.com/user-attachments/assets/8fc79300-dd6d-49ec-9b23-908e9f36370f)
+-![Screenshot (50)](https://github.com/user-attachments/assets/e1adf91e-44ef-4caa-9147-f98c917757c8)
+
 
 
 
