@@ -8,7 +8,11 @@ totaling the price in the end. The receipt that displays the orders contents on 
 a basic POS system. 
 
 
-- "C:\Users\mer3l\OneDrive - Year Up- BOS\Desktop\Pluralsight\capstones\Updated-Capstone2 diagram.drawio"
+- ![Screenshot (49)](https://github.com/user-attachments/assets/b7689775-fbe2-4913-95ff-7a58290dbe01)
+- ![Screenshot (50)](https://github.com/user-attachments/assets/461d99a7-8da3-41f0-b255-5bf378afa06e)
+
+
+
 
 
 ## User Stories
